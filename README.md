@@ -1,4 +1,15 @@
-# cosi217_YangyangChen
+# cosi217 Assignment1 Yangyang Chen
+
+# Modules
+```bash
+Python 3.11.0
+spacy 3.5.0
+(Pipelines en_core_web_sm (3.5.0))
+Flask 2.2.3
+Flask-RESTful 0.3.9
+Streamlit, version 1.19.0
+```
+# Instructions
 
 ### 1. RESTful API
 1. Under /assignment1, change directory to restful_API_and_flask
