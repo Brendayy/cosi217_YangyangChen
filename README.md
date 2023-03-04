@@ -8,6 +8,7 @@ spacy 3.5.0
 Flask 2.2.3
 Flask-RESTful 0.3.9
 Streamlit, version 1.19.0
+spacy-streamlit-1.0.5
 ```
 # Instructions
 
