@@ -8,6 +8,7 @@ spacy 3.5.0
 Flask 2.2.3
 Flask-RESTful 0.3.9
 Streamlit, version 1.19.0
+spacy-streamlit-1.0.5
 ```
 # Instructions
 
@@ -45,3 +46,4 @@ $ streamlit run streamlit.py
 ```
 3. Input any text in the text box, and click submit
 4. NER result should appear on the same page under submit button
+5. A side bar with model information and other visualizations should appear under the initial NER results.
