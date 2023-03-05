@@ -6,6 +6,7 @@ Run spaCy NER over an input string and insert XML tags for each entity.
 
 import io
 import spacy
+from spacy import displacy
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -14,6 +15,7 @@ class SpacyDocument:
     def __init__(self, text: str):
         self.text = text
         self.doc = nlp(text)
+        # self.str = nlp.pipe(text.tolist())
 
     def get_tokens(self):
         return [token.lemma_ for token in self.doc]
@@ -38,6 +40,8 @@ class SpacyDocument:
         markup = buffer.getvalue()
         return '<markup>%s</markup>' % markup
 
+    # def pos(self):
+    #     displacy.render(self.doc,style="span",auto_select_port=True)
 
 if __name__ == '__main__':
 
@@ -54,3 +58,4 @@ if __name__ == '__main__':
     for entity in doc.get_entities():
         print(entity)
     print(doc.get_entities_with_markup())
+

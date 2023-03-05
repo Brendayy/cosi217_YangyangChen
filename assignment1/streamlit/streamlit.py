@@ -1,11 +1,7 @@
 import streamlit as st
 from ner import SpacyDocument
-
-from model import graph
-
-# st.sidebar.markdown('# Letters')
-# letter = st.sidebar.radio('Pick a letter', ['a', 'b', 'c'])
-# st.sidebar.info(f'Selected: {letter}')
+import spacy_streamlit
+from spacy_streamlit import visualize_tokens
 
 st.markdown("## Yangyang's Spacy NER Display")
 
@@ -14,31 +10,14 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>{ner.get_entities_with_markup()}', unsafe_allow_html=True)
 
 
-txt = st.text_area('Type something here...')
+txt = st.text_area('Change the text here...', 
+    "Marc Verhagen teaches at Brandeis in 2022. Yangyang has been doing NLP homework until 3pm.")
 ner = SpacyDocument(txt)
+models = ["en_core_web_sm"]
 if st.button('submit'):
     local_css("static/css/main.css")
+    # st.markdown(ner.pos())
+    spacy_streamlit.visualize(models,txt)
+    # visualize_tokens(ner.text, attrs=["text", "pos_", "dep_", "ent_type_"])
 '---'
-
-
-
-# result = st.text_area('ner',ner.get_entities_with_markup())
-
-# def local_css(file_name):
-#     with open(file_name) as f:
-#         st.markdown(f'<style>{f.read()}</style>{ner.get_entities_with_markup()}', unsafe_allow_html=True)
-
-# local_css("static/css/main.css")
-
-
-# if st.button('Show Animals'):
-#     left, _spacer, right = st.columns([10,1,10])
-#     left.write('Here is what we have in the zoo')
-#     table_data = pd.DataFrame(['koalas','ole','dingos', 'rabbits'],[14,5,6,22])
-#     left.table(table_data)
-#     left.write('... with an unrelated chart')
-#     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
-#     left.area_chart(chart_data)
-#     right.write('And here is an unrelated graph')
-#     right.graphviz_chart(graph)
 
